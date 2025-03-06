@@ -292,8 +292,19 @@ export default function TicTacToePage() {
   }, [startNewGame]);
 
   return (
-    <div className="flex flex-col items-center min-h-[100svh] px-4 py-8 mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Tic-Tac-Toe Bot with Minimax</h1>
+    <div className="flex flex-col items-center min-h-[100svh] px-4 mx-auto">
+      <div className="py-8 flex items-center justify-between mb-6 gap-8">
+        <h1 className="text-2xl font-bold">Tic-Tac-Toe Bot with Minimax</h1>
+
+        <a
+          href="https://github.com/pyaephyowinn/tic-tac-toe-bot"
+          className="text-blue-500 underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
+      </div>
 
       {/* Game status */}
       <div className="mb-4 h-8 text-center">

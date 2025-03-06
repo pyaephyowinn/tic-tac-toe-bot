@@ -29,3 +29,7 @@ The depth level directly impacts the bot's performance:
 
 - **DeepSeek AI**: Used for generating and optimizing parts of the codebase, including the Minimax algorithm implementation and decision tree visualization.
 - **v0**: Utilized for rapid prototyping and generating initial UI components.
+
+## Github
+
+Check out the [GitHub repository](https://github.com/pyaephyowinn/tic-tac-toe-bot) for this project.
