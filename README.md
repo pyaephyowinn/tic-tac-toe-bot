@@ -1,4 +1,4 @@
-# Tic-Tac-Toe with AI
+# Tic-Tac-Toe Bot
 
 A simple Tic-Tac-Toe bot using [Minimax](https://en.wikipedia.org/wiki/Minimax) Algorithm.
 
