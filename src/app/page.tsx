@@ -25,7 +25,7 @@ const SCORES = {
   tie: 0, // Tie game
 };
 
-export default function TicTacToe() {
+export default function TicTacToePage() {
   const [botTree, setBotTree] = useState<TreeNode | null>(null);
   const [board, setBoard] = useState<BoardState>(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState<boolean>(true); // X is always the player
@@ -35,8 +35,9 @@ export default function TicTacToe() {
   const [winner, setWinner] = useState<Player>(null);
   const [winningLine, setWinningLine] = useState<number[] | null>(null);
   const [difficulty, setDifficulty] = useState<Difficulty>("Medium");
-  const [showTree, setShowTree] = useState<boolean>(false);
   const botTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const playedMoves = board.filter((cell) => cell !== null).length;
 
   // Reset the game
   const resetGame = useCallback(() => {
@@ -290,14 +291,9 @@ export default function TicTacToe() {
     startNewGame();
   }, [startNewGame]);
 
-  // Toggle tree visibility
-  const toggleTreeVisibility = () => {
-    setShowTree((prev) => !prev);
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-[100svh] p-4 mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Tic-Tac-Toe</h1>
+    <div className="flex flex-col items-center min-h-[100svh] px-4 py-8 mx-auto">
+      <h1 className="text-2xl font-bold mb-6">Tic-Tac-Toe Bot with Minimax</h1>
 
       {/* Game status */}
       <div className="mb-4 h-8 text-center">
@@ -393,15 +389,15 @@ export default function TicTacToe() {
           >
             <div className="flex items-center space-x-1">
               <RadioGroupItem value="Easy" id="easy" />
-              <Label htmlFor="easy">Easy</Label>
+              <Label htmlFor="easy">Easy 2</Label>
             </div>
             <div className="flex items-center space-x-1">
               <RadioGroupItem value="Medium" id="medium" />
-              <Label htmlFor="medium">Medium</Label>
+              <Label htmlFor="medium">Medium 3</Label>
             </div>
             <div className="flex items-center space-x-1">
               <RadioGroupItem value="Hard" id="hard" />
-              <Label htmlFor="hard">Hard</Label>
+              <Label htmlFor="hard">Hard 4</Label>
             </div>
           </RadioGroup>
         </div>
@@ -413,26 +409,26 @@ export default function TicTacToe() {
           >
             New Game
           </Button>
-
-          {botTree && (
-            <Button
-              onClick={toggleTreeVisibility}
-              variant="outline"
-              className="flex-1"
-            >
-              {showTree ? "Hide Tree" : "Show Tree"}
-            </Button>
-          )}
         </div>
       </div>
 
-      {botTree && showTree && (
+      {botTree && playedMoves > 3 ? (
         <div className="mt-8 w-full overflow-auto">
           <h2 className="text-lg font-bold mb-4 text-center">Decision Tree</h2>
           <div className="overflow-x-auto pb-4">
             <div className="min-w-max">
               <TreeNode node={botTree} isRoot={true} />
             </div>
+          </div>
+        </div>
+      ) : (
+        <div className="mt-8 w-full overflow-auto">
+          <h2 className="text-lg font-bold mb-4 text-center">Decision Tree</h2>
+          <div className="text-center">
+            <span className="text-rose-500 font-bold">
+              {9 - playedMoves - 6}
+            </span>{" "}
+            moves needed to show tree
           </div>
         </div>
       )}
@@ -509,7 +505,7 @@ const TreeNode = ({
         </div>
 
         {/* Expand/collapse button (only if has children) */}
-        {node.children.length > 0 && (
+        {node.children.length > 0 ? (
           <button
             onClick={() => setExpanded(!expanded)}
             className="mt-1 text-xs flex items-center text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
@@ -526,6 +522,10 @@ const TreeNode = ({
               </>
             )}
           </button>
+        ) : (
+          <div className="mt-1 text-xs text-gray-500 dark:text-gray-300">
+            Terminated
+          </div>
         )}
       </div>
 
