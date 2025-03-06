@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tic-Tac-Toe with AI
 
-## Getting Started
+A simple Tic-Tac-Toe bot using [Minimax](https://en.wikipedia.org/wiki/Minimax) Algorithm.
 
-First, run the development server:
+## How Minimax Works
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Minimax algorithm works by recursively evaluating game states. It alternates between maximizing the bot's score and minimizing the opponent's score. The algorithm assumes that both players are playing optimally.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Maximizer**: The bot player tries to maximize its score.
+2. **Minimizer**: The opponent tries to minimize the bot's score.
+3. **Depth**: The number of moves ahead the algorithm looks. Deeper depth means more foresight but requires more computation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Depth Levels and Difficulty
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The depth level directly impacts the bot's performance:
 
-## Learn More
+- **Low Depth (Easy)**: The bot looks 2 moves ahead.
+- **Medium Depth**: The bot looks 3 moves ahead.
+- **High Depth (Hard)**: The bot looks 4 moves ahead.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Play against an AI**: The bot uses the Minimax algorithm with alpha-beta pruning to make optimal moves.
+- **Adjustable Difficulty**: Choose between three difficulty levels: Easy, Medium, and Hard.
+- **Interactive Game Board**: Click on the board to make your moves. The game highlights the winning line when a player wins.
+- **Decision Tree Visualization**: Visualize the bot's decision-making process with an interactive tree diagram.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Built With
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **DeepSeek AI**: Used for generating and optimizing parts of the codebase, including the Minimax algorithm implementation and decision tree visualization.
+- **v0**: Utilized for rapid prototyping and generating initial UI components.
