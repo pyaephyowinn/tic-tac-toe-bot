@@ -235,10 +235,10 @@ export default function TicTacToePage() {
         depth = 2;
         break;
       case "Medium":
-        depth = 3;
+        depth = 4;
         break;
       case "Hard":
-        depth = 4;
+        depth = 8;
         break;
       default:
         depth = 3;
@@ -404,11 +404,11 @@ export default function TicTacToePage() {
             </div>
             <div className="flex items-center space-x-1">
               <RadioGroupItem value="Medium" id="medium" />
-              <Label htmlFor="medium">Medium 3</Label>
+              <Label htmlFor="medium">Medium 4</Label>
             </div>
             <div className="flex items-center space-x-1">
               <RadioGroupItem value="Hard" id="hard" />
-              <Label htmlFor="hard">Hard 4</Label>
+              <Label htmlFor="hard">Hard 8</Label>
             </div>
           </RadioGroup>
         </div>

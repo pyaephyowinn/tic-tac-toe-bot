@@ -15,8 +15,8 @@ The Minimax algorithm works by recursively evaluating game states. It alternates
 The depth level directly impacts the bot's performance:
 
 - **Low Depth (Easy)**: The bot looks 2 moves ahead.
-- **Medium Depth**: The bot looks 3 moves ahead.
-- **High Depth (Hard)**: The bot looks 4 moves ahead.
+- **Medium Depth**: The bot looks 4 moves ahead.
+- **High Depth (Hard)**: The bot looks 8 moves ahead.
 
 ## Features
 
